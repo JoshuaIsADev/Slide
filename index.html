@@ -1,0 +1,97 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Create you financial budget with this simple app"
+    />
+    <meta
+      name="keywords"
+      content="budget app, financial, budget calculator, salary"
+    />
+    <meta name="author" content="Joshua Llaneza" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+
+    <script
+      src="https://kit.fontawesome.com/317c1a67db.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Slide_</title>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Slide_</h1>
+      </header>
+      <main>
+        <hr />
+        <section class="amount-form">
+          <h2>Enter an amount</h2>
+          <h3>One time, weekly, monthly, yearly... up to you!</h3>
+          <div class="amount-field">
+            <p class="amount-input">$</p>
+            <input type="text" class="amount-input-field" placeholder="0" />
+            <button class="submit">
+              <i class="fa-solid fa-check fa-2x" style="color: #000000"></i>
+            </button>
+          </div>
+        </section>
+        <hr />
+        <section class="budget-result">
+          <h2>Here's your budget</h2>
+          <h3>Go ahead and slide it around</h3>
+
+          <div class="slider-container">
+            <div class="slider-title">
+              <p class="name">Housing</p>
+              <p class="info">25% is ideal</p>
+            </div>
+            <input
+              type="range"
+              id="slider1"
+              class="slider"
+              min="0"
+              max="100"
+              value="25"
+            />
+            <div class="slider-result">
+              <p class="dollar">$1,250</p>
+              <p id="value1" class="percentage">100</p>
+            </div>
+          </div>
+
+          <div class="slider-container">
+            <div class="slider-title">
+              <p class="name">Housing</p>
+              <p class="info">25% is ideal</p>
+            </div>
+            <input
+              type="range"
+              id="slider2"
+              class="slider"
+              min="0"
+              max="100"
+              value="25"
+            />
+            <div class="slider-result">
+              <p class="dollar">$1,250</p>
+              <p id="value2" class="percentage">100</p>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+  <script src="./app.js"></script>
+</html>
