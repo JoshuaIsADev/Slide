@@ -36,18 +36,22 @@
       </header>
       <main>
         <hr />
-        <section class="amount-form">
+        <section id="amount-form">
           <h2>Enter an amount</h2>
           <h3>One time, weekly, monthly, yearly... up to you!</h3>
           <div class="amount-field">
             <p class="amount-input">$</p>
-            <input type="text" class="amount-input-field" placeholder="0" />
-            <button class="submit">
+            <input
+              type="text"
+              id="user-input"
+              class="amount-input-field"
+              placeholder="0"
+            />
+            <!-- <button id="submit" class="submit">
               <i class="fa-solid fa-check fa-2x" style="color: #000000"></i>
-            </button>
+            </button> -->
           </div>
         </section>
-        <hr />
         <section class="budget-result">
           <h2>Here's your budget</h2>
           <h3>Go ahead and slide it around</h3>
@@ -66,15 +70,15 @@
               value="25"
             />
             <div class="slider-result">
-              <p class="dollar">$1,250</p>
-              <p id="value1" class="percentage">100</p>
+              <p id="dollar-value1" class="dollar"></p>
+              <p id="percent-value1" class="percentage"></p>
             </div>
           </div>
 
           <div class="slider-container">
             <div class="slider-title">
-              <p class="name">Housing</p>
-              <p class="info">25% is ideal</p>
+              <p class="name">Emergency fund</p>
+              <p class="info">6 months to be sure</p>
             </div>
             <input
               type="range"
@@ -82,11 +86,125 @@
               class="slider"
               min="0"
               max="100"
-              value="25"
+              value="0"
             />
             <div class="slider-result">
-              <p class="dollar">$1,250</p>
-              <p id="value2" class="percentage">100</p>
+              <p id="dollar-value2" class="dollar"></p>
+              <p id="percent-value2" class="percentage"></p>
+            </div>
+          </div>
+
+          <div class="slider-container">
+            <div class="slider-title">
+              <p class="name">Debt</p>
+              <p class="info">Dave Ramsey says pay it off asap</p>
+            </div>
+            <input
+              type="range"
+              id="slider3"
+              class="slider"
+              min="0"
+              max="100"
+              value="0"
+            />
+            <div class="slider-result">
+              <p id="dollar-value3" class="dollar"></p>
+              <p id="percent-value3" class="percentage"></p>
+            </div>
+          </div>
+
+          <div class="slider-container">
+            <div class="slider-title">
+              <p class="name">Savings</p>
+              <p class="info">15% is ideal, but more the merrier</p>
+            </div>
+            <input
+              type="range"
+              id="slider4"
+              class="slider"
+              min="0"
+              max="100"
+              value="15"
+            />
+            <div class="slider-result">
+              <p id="dollar-value4" class="dollar"></p>
+              <p id="percent-value4" class="percentage"></p>
+            </div>
+          </div>
+
+          <div class="slider-container">
+            <div class="slider-title">
+              <p class="name">Charity</p>
+              <p class="info">10% for good causes</p>
+            </div>
+            <input
+              type="range"
+              id="slider5"
+              class="slider"
+              min="0"
+              max="100"
+              value="10"
+            />
+            <div class="slider-result">
+              <p id="dollar-value5" class="dollar"></p>
+              <p id="percent-value5" class="percentage"></p>
+            </div>
+          </div>
+
+          <div class="slider-container">
+            <div class="slider-title">
+              <p class="name">Food & Drinks</p>
+              <p class="info">Save more, make it at home</p>
+            </div>
+            <input
+              type="range"
+              id="slider6"
+              class="slider"
+              min="0"
+              max="100"
+              value="0"
+            />
+            <div class="slider-result">
+              <p id="dollar-value6" class="dollar"></p>
+              <p id="percent-value6" class="percentage"></p>
+            </div>
+          </div>
+
+          <div class="slider-container">
+            <div class="slider-title">
+              <p class="name">Transportation</p>
+              <p class="info">Ferrari or bus pass?</p>
+            </div>
+            <input
+              type="range"
+              id="slider7"
+              class="slider"
+              min="0"
+              max="100"
+              value="0"
+            />
+            <div class="slider-result">
+              <p id="dollar-value7" class="dollar"></p>
+              <p id="percent-value7" class="percentage"></p>
+            </div>
+          </div>
+
+          <div class="slider-container">
+            <div class="slider-title">
+              <p class="name">Entertainment</p>
+              <p class="info">The rest to enjoy life</p>
+            </div>
+            <input
+              type="range"
+              id="slider8"
+              class="slider"
+              min="0"
+              max="100"
+              value="0"
+            />
+            <div class="slider-result">
+              <p id="dollar-value8" class="dollar"></p>
+              <p id="percent-value8" class="percentage"></p>
             </div>
           </div>
         </section>

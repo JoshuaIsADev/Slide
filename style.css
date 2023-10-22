@@ -10,14 +10,16 @@ body {
   background-color: #d3d3d3;
   scroll-behavior: smooth;
   width: 100lvw;
-  height: 100lvh;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow-x: hidden;
 }
 
 .container {
   max-width: 400px;
+  height: 100%;
   padding: 3rem 1.5rem;
 }
 
@@ -51,6 +53,10 @@ h3 {
   color: rgb(120, 120, 120);
 }
 
+#amount-form {
+  padding-bottom: 4rem;
+}
+
 .amount-input {
   font-size: 4rem;
   font-weight: 500;
@@ -70,7 +76,6 @@ h3 {
   border: none;
   border-bottom: solid 1px rgb(150, 150, 150);
   padding: 0.2rem;
-  margin-right: 6rem;
 }
 
 input[type='text']:focus {
