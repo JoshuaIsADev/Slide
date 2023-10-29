@@ -69,7 +69,7 @@ ul li {
 }
 
 #categories {
-  margin-top: 36rem;
+  margin-top: 38rem;
 }
 
 #amount-form,
@@ -306,4 +306,16 @@ input[type='range']:focus::-ms-fill-lower {
 
 input[type='range']:focus::-ms-fill-upper {
   background: none;
+}
+
+@media screen and (max-width: 340px) {
+  #categories {
+    margin-top: 48rem;
+  }
+}
+
+@media screen and (max-width: 270px) {
+  h1 {
+    font-size: 1.8rem;
+  }
 }

@@ -40,7 +40,7 @@ const categories = [
 
   {
     name: 'Transportation',
-    value: 0,
+    value: 12,
     dollar: 0,
   },
 
@@ -101,46 +101,6 @@ const categoryAddBtn = document.querySelector('.category-add-btn');
 //       );
 //   });
 // });
-
-//////SLIDER FUNCTION//////
-
-/*
-function initializeSliders(sliders, userInput) {
-  sliders.forEach(function (slider, index) {
-    let percentOutput = document.querySelector('#percent-value' + (index + 1));
-    let dollarOutput = document.querySelector('#dollar-value' + (index + 1));
-
-    function updateSliderValues() {
-      let currentValue = parseInt(slider.value);
-      let totalValue = 0;
-
-      sliders.forEach(function (s) {
-        totalValue += parseInt(s.value);
-      });
-
-      if (totalValue > 100) {
-        let excess = totalValue - 100;
-        slider.value = currentValue - excess;
-        percentOutput.innerHTML = slider.value + '%';
-      } else {
-        percentOutput.innerHTML = currentValue + '%';
-      }
-
-      // Update dollar values for this slider
-      dollarOutput.innerHTML =
-        '$' +
-        new Intl.NumberFormat('en-US').format(
-          parseFloat(userInput.value * (slider.value / 100)).toFixed(2)
-        );
-    }
-
-    slider.oninput = updateSliderValues;
-    updateSliderValues();
-  });
-}
-
-initializeSliders(sliders, userInput);
-*/
 
 function initializeSliders(sliders, userInput) {
   sliders.forEach(function (slider, index) {
