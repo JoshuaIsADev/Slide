@@ -7,45 +7,55 @@
 
 body {
   font-family: 'Inter', sans-serif;
-  background-color: #db00ff;
+  background-color: #ffffff;
   scroll-behavior: smooth;
   width: 100lvw;
-  height: 100%;
-  display: flex;
+  /* height: 100%; */
+  /* display: flex; */
   align-items: center;
   justify-content: center;
   overflow-x: hidden;
-}
-
-.container {
-  max-width: 400px;
-  height: 100%;
-  padding: 3rem 1.5rem;
-}
-
-header {
-  height: 16rem;
+  padding: 0;
+  margin: 0;
 }
 
 html {
   -webkit-text-size-adjust: 100%;
 }
 
+header {
+  text-align: justify;
+  margin: auto;
+  width: 100lvw;
+  position: fixed;
+  top: 0;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.container {
+  max-width: 400px;
+  height: 100%;
+  margin: auto;
+  padding: 3rem 1.5rem;
+}
+
 h1 {
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 800;
   text-transform: uppercase;
 }
 
 h2 {
-  font-size: 2rem;
-  font-weight: 300;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
   text-transform: uppercase;
 }
 
 h3 {
   font-size: 1rem;
   font-weight: 300;
+  letter-spacing: 0.1rem;
   text-transform: uppercase;
   text-decoration: underline;
   text-underline-offset: 0.3rem;
@@ -53,29 +63,51 @@ h3 {
   color: rgba(0, 0, 0, 0.5);
 }
 
-#amount-form {
-  padding-bottom: 4rem;
+ul li {
+  list-style: none;
+  padding: 0;
+}
+
+#categories {
+  margin-top: 36rem;
+}
+
+#amount-form,
+#category-form {
+  padding-top: 3rem;
+  text-align: right;
 }
 
 .amount-input {
-  font-size: 4rem;
+  font-size: 3.2rem;
   font-weight: 500;
+  color: rgba(0, 0, 0, 0.15);
+  text-align: right;
   text-transform: uppercase;
   border: none;
-  border-bottom: solid 1px rgba(0, 0, 0, 0.3);
+  border-bottom: none;
 }
 
-.amount-input-field {
+.amount-input-field,
+.category-input-field {
   box-sizing: border-box;
-  font-size: 4rem;
   font-weight: 500;
   width: 100%;
-  text-align: left;
+  text-align: right;
   text-transform: uppercase;
   background: none;
   border: none;
-  border-bottom: solid 1px rgba(0, 0, 0, 0.3);
+  border-bottom: none;
   padding: 0.2rem;
+}
+
+.amount-input-field {
+  font-size: 3.2rem;
+}
+
+.category-input-field {
+  font-size: 2rem;
+  margin-right: 2rem;
 }
 
 input[type='text']:focus {
@@ -88,17 +120,12 @@ input[type='text']:focus {
 }
 
 .name {
-  font-size: 1.4rem;
+  font-size: 1rem;
   font-weight: 400;
   text-transform: uppercase;
   color: black;
 }
-.info {
-  font-size: 1.4rem;
-  font-weight: 400;
-  text-transform: uppercase;
-  color: rgba(0, 0, 0, 0.3);
-}
+
 .dollar {
   font-size: 2rem;
   font-weight: 600;
@@ -106,16 +133,29 @@ input[type='text']:focus {
   color: black;
 }
 
+.percent-container {
+  display: flex;
+  align-items: end;
+  color: rgba(0, 0, 0, 0.15);
+}
+
 .percentage {
-  font-size: 3rem;
-  font-weight: 300;
-  color: rgba(0, 0, 0, 0.3);
+  font-size: 9rem;
+  font-weight: 200;
+  letter-spacing: -1rem;
+  /* padding-bottom: -2rem; */
+  line-height: 7.8rem;
+}
+
+.percent-sign {
+  font-size: 2rem;
+  font-weight: 600;
+  padding-left: 0.5rem;
 }
 
 hr {
-  border-top: 1px solid rgba(0, 0, 0, 0.3);
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
   border-bottom: none;
-  margin: 5rem 0;
 }
 
 button {
@@ -135,20 +175,38 @@ button {
   justify-content: space-between;
 }
 
-.slider-title,
-.slider-result {
+.category-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.category-title {
+  text-align: right;
+}
+
+.category-result {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
 }
 
-.slider-container {
-  margin-bottom: 3rem;
+.category-container {
+  margin-bottom: 6rem;
 }
 
 .slider {
   padding: 1rem 0;
   background: none;
+}
+
+.slider-border {
+  border-style: solid;
+  border-width: thin;
+  border-radius: 10px;
+  border-color: rgba(0, 0, 0, 0.15);
+  padding: 0.2rem 1.5rem 0rem;
+  margin-top: 0.5rem;
 }
 
 /*SLIDER BAR*/
@@ -160,84 +218,92 @@ input[type='range'] {
 input[type='range']:focus {
   outline: none;
 }
+
 input[type='range']::-webkit-slider-runnable-track {
   width: 100%;
-  height: 0.2rem;
+  height: 0.1rem;
   cursor: pointer;
   box-shadow: none;
-  background: #9703ad;
+  background: rgba(0, 0, 0, 0.15);
   background-color: none;
+  border: none;
+}
+
+input[type='range']:focus::-webkit-slider-runnable-track {
+  background: rgba(0, 0, 0, 0.15);
+}
+
+input[type='range']::-moz-range-track {
+  width: 100%;
+  height: 0.1rem;
+  cursor: pointer;
+  box-shadow: none;
+  background: rgba(0, 0, 0, 0.15);
+  border: none;
+}
+
+input[type='range']::-ms-track {
+  width: 100%;
+  height: 0.1rem;
+  cursor: pointer;
+  box-shadow: none;
+  background: #b161bd;
   border: none;
 }
 
 input[type='range']::-webkit-slider-thumb {
   box-shadow: none;
   border: none;
-  height: 1rem;
+  height: 0.8rem;
   width: 4rem;
-  border-radius: 0px;
+  border-radius: 1rem;
+  background: #000000;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -0.4rem;
+}
+input[type='range']::-moz-range-thumb {
+  box-shadow: none;
+  border: none;
+  height: 0.8rem;
+  width: 4rem;
+  border-radius: 1rem;
   background: #000000;
   cursor: pointer;
   -webkit-appearance: none;
   margin-top: -0.4rem;
 }
 
-input[type='range']:focus::-webkit-slider-runnable-track {
-  background: #9703ad;
-}
-input[type='range']::-moz-range-track {
-  width: 100%;
-  height: 0.2rem;
-  cursor: pointer;
-  box-shadow: none;
-  background: #9703ad;
-  border: none;
-}
-input[type='range']::-moz-range-thumb {
+input[type='range']::-ms-thumb {
   box-shadow: none;
   border: none;
-  height: 0.5rem;
-  width: 2rem;
-  border-radius: 0px;
+  height: 0.8rem;
+  width: 4rem;
+  border-radius: 1rem;
   background: #000000;
   cursor: pointer;
   -webkit-appearance: none;
-  margin-top: -0.1rem;
+  margin-top: -0.4rem;
 }
-input[type='range']::-ms-track {
-  width: 100%;
-  height: 0.2rem;
-  cursor: pointer;
-  box-shadow: none;
-  background: #9703ad;
-  border: none;
-}
-input[type='range']::-ms-fill-lower {
-  background: none;
-  border: none;
-  border-radius: none;
-  box-shadow: none;
-}
+
 input[type='range']::-ms-fill-upper {
   background: none;
   border: none;
   border-radius: none;
   box-shadow: none;
 }
-input[type='range']::-ms-thumb {
-  box-shadow: none;
+
+input[type='range']::-ms-fill-lower {
+  background: none;
   border: none;
-  height: 0.5rem;
-  width: 2rem;
-  border-radius: 0px;
-  background: #000000;
-  cursor: pointer;
-  -webkit-appearance: none;
-  margin-top: -0.1rem;
+  border-radius: none;
+  box-shadow: none;
 }
+
 input[type='range']:focus::-ms-fill-lower {
   background: none;
 }
+
 input[type='range']:focus::-ms-fill-upper {
   background: none;
 }
