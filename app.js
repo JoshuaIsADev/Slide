@@ -4,48 +4,56 @@
 const categories = [
   {
     name: 'Housing',
+    id: 1,
     value: 25,
     dollar: 0,
   },
 
   {
     name: 'Emergency fund',
+    id: 2,
     value: 0,
     dollar: 0,
   },
 
   {
     name: 'Debt',
+    id: 3,
     value: 0,
     dollar: 0,
   },
 
   {
     name: 'Savings',
+    id: 4,
     value: 15,
     dollar: 0,
   },
 
   {
     name: 'Charity',
+    id: 5,
     value: 10,
     dollar: 0,
   },
 
   {
     name: 'Food',
+    id: 6,
     value: 0,
     dollar: 0,
   },
 
   {
     name: 'Transportation',
-    value: 12,
+    id: 7,
+    value: 0,
     dollar: 0,
   },
 
   {
     name: 'Entertainment',
+    id: 8,
     value: 0,
     dollar: 0,
   },
@@ -53,144 +61,101 @@ const categories = [
 
 let sliderDollar = document.querySelectorAll('.dollar');
 let sliders = document.querySelectorAll('.slider');
-let userInput = document.querySelector('#input-amount');
+let amountForm = document.querySelector('#amount-form');
 let submitBtn = document.querySelector('#submit');
-let userInputValue;
+let categoriesData = categories;
 
-const categoryInput = document.querySelector('#category-input');
+const categoryFormContainer = document.querySelector(
+  '#category-form-container'
+);
+const categoryForm = document.querySelector('#category-form');
 const listContainer = document.querySelector('#list-container');
 const categoryAddBtn = document.querySelector('.category-add-btn');
 
 //////ADD CATEGORY FUNCTION//////
-// function addCategory() {
-//   if (categoryInput.value === '') {
-//     alert('You must add something');
-//   } else {
-//     let li = document.createElement('li');
-//     // li.innerHTML = categoryInput.value + 'hello';
-//     li.innerHTML = `
-//       <p class="name">${categoryInput.value}</p>
-//       <input type="range" id="slider9" class="slider" min="0" max="100" value="0"/>
-//       <div class="category-result">
-//         <p id="percent-value9" class="percentage"></p>
-//         <p id="dollar-value9" class="dollar"></p>
-//       </div>`;
-//     listContainer.appendChild(li);
-//   }
-//   initializeSliders(sliders, userInput);
-// }
+function addCategory(e) {
+  e.preventDefault();
+  if (categoryForm.value.trim() === '') {
+    alert('Please add a text');
+  } else {
+    let amountValue = parseFloat(amountForm.value);
+    const category = {
+      name: categoryForm.value,
+      id: generateID(),
+      value: 0,
+      dollar: amountValue,
+    };
 
-//////ADD CATEGORY BTN EVENT LISTENER//////
-// categoryAddBtn.addEventListener('click', function () {
-//   addCategory();
-//   initializeSliders(sliders, userInput);
-// });
+    categories.push(category);
+    displayCategories(category, categories.length - 1);
+    categoryForm.value = '';
 
-// userInput.addEventListener('input', function () {
-//   let userInputValue = userInput.value;
-//   userInputValue = userInputValue.replace(/[^0-9.]/g, '');
-//   console.log(userInputValue);
-
-//   // Update dollar values for all sliders
-//   sliders.forEach(function (slider, index) {
-//     let dollarOutput = document.querySelector('#dollar-value' + (index + 1));
-//     dollarOutput.innerHTML =
-//       '$' +
-//       new Intl.NumberFormat('en-US').format(
-//         parseFloat(userInput.value * (slider.value / 100)).toFixed(2)
-//       );
-//   });
-// });
-
-function initializeSliders(sliders, userInput) {
-  sliders.forEach(function (slider, index) {
-    let percentOutput = document.querySelector('#percent-value' + (index + 1));
-    let dollarOutput = document.querySelector('#dollar-value' + (index + 1));
-
-    function updateSliderValues() {
-      let currentValue = parseInt(`${category.value}`);
-      let totalValue = 0;
-
-      sliders.forEach(function (s) {
-        totalValue += parseInt(s.value);
-      });
-
-      if (totalValue > 100) {
-        let excess = totalValue - 100;
-        slider.value = currentValue - excess;
-        percentOutput.innerHTML = slider.value + '%';
-      } else {
-        percentOutput.innerHTML = currentValue + '%';
-      }
-
-      // Update dollar values for this slider
-      dollarOutput.innerHTML =
-        '$' +
-        new Intl.NumberFormat('en-US').format(
-          parseFloat(userInput.value * (slider.value / 100)).toFixed(2)
-        );
-    }
-
-    slider.oninput = updateSliderValues;
-    updateSliderValues();
-  });
+    updateCategoryInfo(categories);
+  }
 }
 
-initializeSliders(sliders, userInput);
+//////GENERATE RANDOM ID//////
+function generateID() {
+  return Math.floor(Math.random() * 1000);
+}
 
-////////////////////////////////////
-////////////////////////////////////
 //////USER AMOUNT EVENT LISTENER//////
-userInput.addEventListener('input', function () {
-  let userInputValue = userInput.value;
-  userInputValue = userInputValue.replace(/[^0-9.]/g, '');
+amountForm.addEventListener('input', function () {
+  let amountFormValue = amountForm.value;
+  amountFormValue = amountFormValue.replace(/[^0-9.]/g, '');
 
-  if (!isNaN(userInputValue)) {
+  if (!isNaN(amountFormValue)) {
     categories.forEach(function (category) {
-      category.dollar = userInputValue;
+      category.dollar = amountFormValue;
     });
     updateCategoryInfo(categories);
   }
 });
 
-////////////////////////////////////
-////////////////////////////////////
-//////SHOW CATEGORIES FUNCTION//////
-const displayCategories = function (categories) {
-  categories.forEach(function (category, i) {
-    const html = `
-      <li class="category-container">
-        <div class="category-info">
-          <div class="percent-container">
-            <p id="percent-value${i}" class="percentage">0</p>
-            <p class="percent-sign">%</p>
-          </div>
-          <div class="category-title">
-            <p class="name">${category.name}</p>
-            <p id="dollar-value${i}" class="dollar">${category.dollar}</p>
-          </div>
-        </div>
-        <div class="slider-border">
-          <input type="range" id="slider${i}" class="slider" min="0" max="100" value="${category.value}"/>
-        </div>
-      </li>
-    `;
-    listContainer.insertAdjacentHTML('beforeend', html);
-  });
-};
+//////SHOW LIST ON DOM//////
+function displayCategories(category, i) {
+  const item = document.createElement('li');
+  item.classList.add('category-container');
+  item.innerHTML = `
+    <div class="category-info">
+      <div class="percent-container">
+        <p id="percent-value${i}" class="percentage">0</p>
+        <p class="percent-sign">%</p>
+      </div>
+      <div class="category-title">
+        <p class="name">${category.name}</p>
+        <p id="dollar-value${i}" class="dollar">${category.dollar}</p>
+      </div>
+    </div>
+    <div class="slider-border">
+      <input type="range" id="slider${i}" class="slider" min="0" max="100" value="${category.value}"/>
+    </div>
+  `;
+  listContainer.appendChild(item);
+}
 
+//INIT APP//
+function init() {
+  listContainer.innerHTML = '';
+
+  categoriesData.forEach(displayCategories);
+}
+
+init();
+
+categoryFormContainer.addEventListener('submit', addCategory);
+
+//////PERCENTAGE AND SLIDER FUNCTION//////
 const updateCategoryInfo = function (categories) {
   categories.forEach(function (category, i) {
     const slider = document.getElementById(`slider${i}`);
     const percentValue = document.getElementById(`percent-value${i}`);
     const dollarValue = document.getElementById(`dollar-value${i}`);
 
-    // Add an event listener to each slider
     slider.addEventListener('input', () => {
       let currentValue = parseInt(slider.value);
       let totalValue = 0;
 
-      // Calculate the total value based on all sliders
       categories.forEach(function (cat, index) {
         if (i !== index) {
           totalValue += parseInt(
@@ -199,7 +164,6 @@ const updateCategoryInfo = function (categories) {
         }
       });
 
-      // Handle the totalValue logic
       if (totalValue + currentValue > 100) {
         let excess = totalValue + currentValue - 100;
         slider.value = currentValue - excess;
@@ -214,7 +178,6 @@ const updateCategoryInfo = function (categories) {
       )}`;
     });
 
-    // Initialize the DOM values when the page loads
     percentValue.textContent = `${slider.value}`;
 
     const dollarAmount = (slider.value / 100) * category.dollar;
@@ -224,5 +187,4 @@ const updateCategoryInfo = function (categories) {
   });
 };
 
-displayCategories(categories);
 updateCategoryInfo(categories);

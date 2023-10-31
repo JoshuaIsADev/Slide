@@ -33,19 +33,19 @@
     <header>
       <div class="container">
         <h1>
-          Slide_ is an app that will help calculate your expenses. Enter an
-          amount below and see it broken down to different categories, which are
-          set to common recommendations. Slide_ the sliders to your liking and
-          add some categories of your own at the bottom too.
+          Slide_ is an app that will help calculate your budget. Enter an amount
+          below and see it broken down to different categories, which are set to
+          commonly recommended percentages. Slide_ the sliders to your liking
+          and add some categories of your own at the bottom too.
         </h1>
-        <div id="amount-form">
+        <div id="amount-form-container">
           <h2>Enter an amount</h2>
           <div class="amount-field">
-            <p class="amount-input">$</p>
+            <p class="amount-form">$</p>
             <input
               type="text"
-              id="input-amount"
-              class="amount-input-field"
+              id="amount-form"
+              class="amount-form-field"
               placeholder="0"
             />
           </div>
@@ -56,44 +56,27 @@
     <main>
       <div class="container">
         <section id="categories">
-          <ul id="list-container">
-            <!-- <li class="category-container">
-                <div class="category-title">
-                  <p class="name">Housing</p>
-                  <p class="info">25% is ideal</p>
-                </div>
-                <input
-                  type="range"
-                  id="slider1"
-                  class="slider"
-                  min="0"
-                  max="100"
-                  value="25"
-                />
-                <div class="category-result">
-                  <p id="dollar-value1" class="dollar"></p>
-                  <p id="percent-value1" class="percentage"></p>
-                </div>
-              </li>
-            -->
-          </ul>
+          <ul id="list-container"></ul>
         </section>
-        <section id="category-form">
+        <form id="category-form-container">
+          <h2>Add a category</h2>
           <div class="amount-field">
+            <label for="text"
+              ><button class="category-add-btn">
+                <i
+                  class="fa-solid fa-plus fa-xl"
+                  style="color: rgba(0, 0, 0, 0.15)"
+                ></i></button
+            ></label>
             <input
               type="text"
-              id="category-input"
-              class="category-input-field"
-              placeholder="Add a category"
+              id="category-form"
+              class="category-form-field"
+              placeholder="Enter a name"
             />
-            <button class="category-add-btn">
-              <i
-                class="fa-solid fa-plus fa-2xl"
-                style="color: rgba(0, 0, 0, 0.3)"
-              ></i>
-            </button>
           </div>
-        </section>
+          <hr />
+        </form>
       </div>
     </main>
     <script src="./app.js"></script>
