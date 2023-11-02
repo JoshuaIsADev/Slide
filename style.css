@@ -7,7 +7,7 @@
 
 body {
   font-family: 'Inter', sans-serif;
-  background-color: #ffffff;
+  background-color: rgba(255, 205, 50, 1);
   scroll-behavior: smooth;
   width: 100lvw;
   /* height: 100%; */
@@ -24,30 +24,29 @@ html {
 }
 
 header {
-  text-align: justify;
+  text-align: left;
   margin: auto;
   width: 100lvw;
-  position: fixed;
   top: 0;
-  background-color: rgba(255, 255, 255, 1);
+  background-color: rgba(255, 205, 50, 1);
 }
 
 .container {
   max-width: 400px;
   height: 100%;
   margin: auto;
-  padding: 3rem 1.5rem;
+  padding: 8rem 1.5rem;
 }
 
 h1 {
-  font-size: 2rem;
-  font-weight: 800;
+  font-size: 3.2rem;
+  font-weight: 300;
   text-transform: uppercase;
 }
 
 h2 {
-  font-size: 1.2rem;
-  font-weight: 700;
+  font-size: 1rem;
+  font-weight: 400;
   letter-spacing: 0.1rem;
   text-transform: uppercase;
 }
@@ -57,8 +56,13 @@ ul li {
   padding: 0;
 }
 
-#categories {
-  margin-top: 40rem;
+.header-info {
+  font-size: 1.2rem;
+  line-height: 2rem;
+  font-weight: 400;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  padding: 4rem 4rem 10rem 0;
 }
 
 #amount-form-container,
@@ -72,8 +76,8 @@ ul li {
 }
 
 .amount-form {
-  font-size: 3.2rem;
-  font-weight: 500;
+  font-size: 3.6rem;
+  font-weight: 200;
   color: rgba(0, 0, 0, 0.15);
   text-align: right;
   text-transform: uppercase;
@@ -84,8 +88,9 @@ ul li {
 .amount-form-field,
 .category-form-field {
   box-sizing: border-box;
-  font-size: 3.2rem;
-  font-weight: 500;
+  font-size: 3.6rem;
+  font-weight: 200;
+  letter-spacing: 0.15rem;
   width: 100%;
   text-align: right;
   text-transform: uppercase;
@@ -94,11 +99,6 @@ ul li {
   border-bottom: none;
   padding: 0.2rem;
 }
-
-/* .amount-form-field,
-.category-form-field {
-  font-size: 3.2rem;
-} */
 
 input[type='text']:focus {
   outline: none;
@@ -118,7 +118,7 @@ input[type='text']:focus {
 
 .dollar {
   font-size: 2rem;
-  font-weight: 600;
+  font-weight: 500;
   text-transform: uppercase;
   color: black;
 }
@@ -130,22 +130,24 @@ input[type='text']:focus {
 }
 
 .percentage {
-  font-size: 9rem;
+  font-size: 4rem;
   font-weight: 200;
-  letter-spacing: -1rem;
-  /* padding-bottom: -2rem; */
-  line-height: 7.8rem;
+  letter-spacing: -0.5rem;
+  line-height: 4.4rem;
 }
 
 .percent-sign {
   font-size: 2rem;
   font-weight: 600;
-  padding-left: 0.5rem;
+  padding-left: 0.75rem;
 }
 
 hr {
   border-top: 1px solid rgba(0, 0, 0, 0.15);
   border-bottom: none;
+  width: 100lvw;
+  left: 0;
+  position: absolute;
 }
 
 button {
@@ -298,16 +300,4 @@ input[type='range']:focus::-ms-fill-lower {
 
 input[type='range']:focus::-ms-fill-upper {
   background: none;
-}
-
-@media screen and (max-width: 340px) {
-  #categories {
-    margin-top: 48rem;
-  }
-}
-
-@media screen and (max-width: 270px) {
-  h1 {
-    font-size: 1.8rem;
-  }
 }

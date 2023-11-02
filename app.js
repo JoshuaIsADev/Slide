@@ -40,21 +40,21 @@ const categories = [
   {
     name: 'Food',
     id: 6,
-    value: 0,
+    value: 12,
     dollar: 0,
   },
 
   {
     name: 'Transportation',
     id: 7,
-    value: 0,
+    value: 10,
     dollar: 0,
   },
 
   {
     name: 'Entertainment',
     id: 8,
-    value: 0,
+    value: 8,
     dollar: 0,
   },
 ];
@@ -83,7 +83,7 @@ function addCategory(e) {
       name: categoryForm.value,
       id: generateID(),
       value: 0,
-      dollar: amountValue,
+      dollar: (amountValue = 0),
     };
 
     categories.push(category);
