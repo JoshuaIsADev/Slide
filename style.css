@@ -35,7 +35,7 @@ header {
   max-width: 400px;
   height: 100%;
   margin: auto;
-  padding: 2.4rem 2.4rem;
+  padding: 2rem 1.5rem;
 }
 
 h1 {
@@ -111,6 +111,7 @@ input[type='text']:focus {
 
 .name {
   font-size: 1rem;
+  letter-spacing: 0.1rem;
   font-weight: 400;
   text-transform: uppercase;
   color: black;
@@ -143,7 +144,7 @@ input[type='text']:focus {
 }
 
 hr {
-  border-top: 1px solid rgba(0, 0, 0, 0.15);
+  border-top: 1px solid rgba(0, 0, 0, 0.4);
   border-bottom: none;
   width: 100lvw;
   left: 0;
@@ -160,7 +161,7 @@ button {
   background: none;
   cursor: pointer;
   align-self: end;
-  margin-bottom: 0.75rem;
+  margin-top: 0.8rem;
 }
 
 .amount-field {
