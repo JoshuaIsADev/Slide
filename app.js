@@ -78,12 +78,15 @@ function addCategory(e) {
   if (categoryForm.value.trim() === '') {
     alert('Please add a text');
   } else {
-    let amountValue = parseFloat(amountForm.value);
+    let amountValue = 0;
+    if (amountForm.value.trim() !== '') {
+      amountValue = parseFloat(amountForm.value);
+    }
     const category = {
       name: categoryForm.value,
       id: generateID(),
       value: 0,
-      dollar: (amountValue = 0),
+      dollar: amountValue,
     };
 
     categories.push(category);
