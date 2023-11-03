@@ -163,16 +163,15 @@ button {
   margin-top: 0.8rem;
 }
 
-.btn-delete,
-.btn-add {
+.btn-delete {
   margin-bottom: 0.4rem;
   margin-right: 1rem;
-  color: rgba(0, 0, 0, 0.2);
 }
 
 .btn-add {
   font-size: 1.7rem;
-  padding-top: 0.1rem;
+  padding-bottom: 0.5rem;
+  margin-top: 1rem;
 }
 
 .amount-field {
