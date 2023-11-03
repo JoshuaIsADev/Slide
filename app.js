@@ -4,56 +4,56 @@
 let categories = [
   {
     name: 'Housing',
-    id: generateID(),
+    id: 1,
     value: 25,
     dollar: 0,
   },
 
   {
     name: 'Emergency fund',
-    id: generateID(),
+    id: 2,
     value: 0,
     dollar: 0,
   },
 
   {
     name: 'Debt',
-    id: generateID(),
+    id: 3,
     value: 0,
     dollar: 0,
   },
 
   {
     name: 'Savings',
-    id: generateID(),
+    id: 4,
     value: 15,
     dollar: 0,
   },
 
   {
     name: 'Charity',
-    id: generateID(),
+    id: 5,
     value: 10,
     dollar: 0,
   },
 
   {
     name: 'Food',
-    id: generateID(),
+    id: 6,
     value: 12,
     dollar: 0,
   },
 
   {
     name: 'Transportation',
-    id: generateID(),
+    id: 7,
     value: 10,
     dollar: 0,
   },
 
   {
     name: 'Entertainment',
-    id: generateID(),
+    id: 8,
     value: 8,
     dollar: 0,
   },
