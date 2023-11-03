@@ -169,14 +169,15 @@ button {
 
 .btn-add {
   font-size: 1.7rem;
-  padding-bottom: 1.5rem;
-  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
 }
 
 .amount-field {
   display: flex;
   width: 100%;
   justify-content: space-between;
+  align-items: end;
 }
 
 .category-info {
