@@ -123,7 +123,7 @@ function displayCategories(category, i) {
   item.innerHTML = `
     <div class="category-info">
       <div class="percent-container">
-      <button class="btn-delete" onclick="removeCategory(${category.id})"><i class="fa-solid fa-x fa-l" style="color: rgba(0, 0, 0, 0.15);"></i></button>
+      <button class="btn-delete" onclick="removeCategory(${category.id})"><i class="fa-solid fa-x fa-l d-flex align-items-center" style="color: rgba(0, 0, 0, 0.15);"></i></button>
         <p id="percent-value${i}" class="percentage">0</p>
         <p class="percent-sign">%</p>
       </div>
