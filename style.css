@@ -127,14 +127,14 @@ input[type='text']:focus {
 .percent-container {
   display: flex;
   align-items: end;
-  color: rgba(0, 0, 0, 0.15);
+  color: rgba(0, 0, 0, 0.6);
 }
 
 .percentage {
-  font-size: 4rem;
+  font-size: 3.8rem;
   font-weight: 200;
   letter-spacing: -0.5rem;
-  line-height: 4.4rem;
+  line-height: 3.8rem;
 }
 
 .percent-sign {
@@ -152,9 +152,8 @@ hr {
 }
 
 button {
-  min-width: 3rem;
-  width: 3rem;
-  height: 3rem;
+  width: 2.4rem;
+  height: 2.4rem;
   scale: 1;
   border: solid 1px rgba(0, 0, 0, 0.15);
   border-radius: 1.5rem;
@@ -162,6 +161,18 @@ button {
   cursor: pointer;
   align-self: end;
   margin-top: 0.8rem;
+}
+
+.btn-delete,
+.btn-add {
+  margin-bottom: 0.4rem;
+  margin-right: 1rem;
+  color: rgba(0, 0, 0, 0.2);
+}
+
+.btn-add {
+  font-size: 1.7rem;
+  padding-top: 0.1rem;
 }
 
 .amount-field {

@@ -1,7 +1,7 @@
 'use strict';
 
-//////DATA//////
-const categories = [
+//////DEFAULT DATA//////
+let categories = [
   {
     name: 'Housing',
     id: 1,
@@ -72,6 +72,73 @@ const categoryForm = document.querySelector('#category-form');
 const listContainer = document.querySelector('#list-container');
 const categoryAddBtn = document.querySelector('.category-add-btn');
 
+//////PERCENTAGE AND SLIDER FUNCTION//////
+const updateCategoryInfo = function (categories) {
+  categories.forEach(function (category, i) {
+    const slider = document.getElementById(`slider${i}`);
+    const percentValue = document.getElementById(`percent-value${i}`);
+    const dollarValue = document.getElementById(`dollar-value${i}`);
+
+    if (slider) {
+      slider.addEventListener('input', () => {
+        let currentValue = parseInt(slider.value);
+        let totalValue = 0;
+
+        categories.forEach(function (cat, index) {
+          if (slider && i !== index) {
+            totalValue += parseInt(
+              document.getElementById(`slider${index}`).value
+            );
+          }
+        });
+
+        if (totalValue + currentValue > 100) {
+          let excess = totalValue + currentValue - 100;
+          slider.value = currentValue - excess;
+          percentValue.textContent = `${slider.value}`;
+        } else {
+          percentValue.textContent = currentValue;
+        }
+
+        const dollarAmount = (slider.value / 100) * category.dollar;
+        dollarValue.textContent = `$${Intl.NumberFormat('en-US').format(
+          dollarAmount.toFixed(2)
+        )}`;
+      });
+
+      percentValue.textContent = `${slider.value}`;
+
+      const dollarAmount = (slider.value / 100) * category.dollar;
+      dollarValue.textContent = `$${Intl.NumberFormat('en-US').format(
+        dollarAmount.toFixed(2)
+      )}`;
+    }
+  });
+};
+
+//////SHOW LIST ON DOM//////
+function displayCategories(category, i) {
+  const item = document.createElement('li');
+  item.classList.add('category-container');
+  item.innerHTML = `
+    <div class="category-info">
+      <div class="percent-container">
+      <button class="btn-delete" onclick="removeCategory(${category.id})">&#10006</button>
+        <p id="percent-value${i}" class="percentage">0</p>
+        <p class="percent-sign">%</p>
+      </div>
+      <div class="category-title">
+        <p class="name">${category.name}</p>
+        <p id="dollar-value${i}" class="dollar">${category.dollar}</p>
+      </div>
+    </div>
+    <div class="slider-border">
+      <input type="range" id="slider${i}" class="slider" min="0" max="100" value="${category.value}"/>
+    </div>
+  `;
+  listContainer.appendChild(item);
+}
+
 //////ADD CATEGORY FUNCTION//////
 function addCategory(e) {
   e.preventDefault();
@@ -97,6 +164,33 @@ function addCategory(e) {
   }
 }
 
+//////DELETE CATEGORY FUNCTION//////
+function removeCategory(id) {
+  console.log(`removed: ${id}`);
+
+  const indexToRemove = categories.findIndex((category) => category.id === id);
+
+  if (indexToRemove !== -1) {
+    categories.splice(indexToRemove, 1);
+
+    const categoryElement = document.querySelector(`#slider${indexToRemove}`)
+      .parentNode.parentNode;
+    listContainer.removeChild(categoryElement);
+
+    const sliders = document.querySelectorAll('.slider');
+    const percentValues = document.querySelectorAll('.percentage');
+    const dollarValues = document.querySelectorAll('.dollar');
+
+    sliders.forEach((slider, i) => {
+      slider.id = `slider${i}`;
+      percentValues[i].id = `percent-value${i}`;
+      dollarValues[i].id = `dollar-value${i}`;
+    });
+
+    updateCategoryInfo(categories);
+  }
+}
+
 //////GENERATE RANDOM ID//////
 function generateID() {
   return Math.floor(Math.random() * 1000);
@@ -115,79 +209,13 @@ amountForm.addEventListener('input', function () {
   }
 });
 
-//////SHOW LIST ON DOM//////
-function displayCategories(category, i) {
-  const item = document.createElement('li');
-  item.classList.add('category-container');
-  item.innerHTML = `
-    <div class="category-info">
-      <div class="percent-container">
-        <p id="percent-value${i}" class="percentage">0</p>
-        <p class="percent-sign">%</p>
-      </div>
-      <div class="category-title">
-        <p class="name">${category.name}</p>
-        <p id="dollar-value${i}" class="dollar">${category.dollar}</p>
-      </div>
-    </div>
-    <div class="slider-border">
-      <input type="range" id="slider${i}" class="slider" min="0" max="100" value="${category.value}"/>
-    </div>
-  `;
-  listContainer.appendChild(item);
-}
+categoryFormContainer.addEventListener('submit', addCategory);
 
-//INIT APP//
+//////INIT APP//////
 function init() {
   listContainer.innerHTML = '';
-
   categoriesData.forEach(displayCategories);
 }
 
 init();
-
-categoryFormContainer.addEventListener('submit', addCategory);
-
-//////PERCENTAGE AND SLIDER FUNCTION//////
-const updateCategoryInfo = function (categories) {
-  categories.forEach(function (category, i) {
-    const slider = document.getElementById(`slider${i}`);
-    const percentValue = document.getElementById(`percent-value${i}`);
-    const dollarValue = document.getElementById(`dollar-value${i}`);
-
-    slider.addEventListener('input', () => {
-      let currentValue = parseInt(slider.value);
-      let totalValue = 0;
-
-      categories.forEach(function (cat, index) {
-        if (i !== index) {
-          totalValue += parseInt(
-            document.getElementById(`slider${index}`).value
-          );
-        }
-      });
-
-      if (totalValue + currentValue > 100) {
-        let excess = totalValue + currentValue - 100;
-        slider.value = currentValue - excess;
-        percentValue.textContent = `${slider.value}`;
-      } else {
-        percentValue.textContent = currentValue;
-      }
-
-      const dollarAmount = (slider.value / 100) * category.dollar;
-      dollarValue.textContent = `$${Intl.NumberFormat('en-US').format(
-        dollarAmount.toFixed(2)
-      )}`;
-    });
-
-    percentValue.textContent = `${slider.value}`;
-
-    const dollarAmount = (slider.value / 100) * category.dollar;
-    dollarValue.textContent = `$${Intl.NumberFormat('en-US').format(
-      dollarAmount.toFixed(2)
-    )}`;
-  });
-};
-
 updateCategoryInfo(categories);
