@@ -91,13 +91,13 @@ ul li {
   font-size: 3.6rem;
   font-weight: 200;
   letter-spacing: 0.15rem;
+  line-height: 0rem;
   width: 100%;
   text-align: right;
   text-transform: uppercase;
   background: none;
   border: none;
   border-bottom: none;
-  padding: 0.2rem;
 }
 
 input[type='text']:focus {
@@ -168,8 +168,10 @@ button {
 
 .btn-add {
   font-size: 1.7rem;
-  margin-bottom: 1rem;
-  padding-bottom: 2rem;
+}
+
+.btn-add-container {
+  padding-bottom: 0.8rem;
 }
 
 .amount-field {
