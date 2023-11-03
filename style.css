@@ -159,7 +159,6 @@ button {
   border-radius: 1.5rem;
   background: none;
   cursor: pointer;
-  align-self: end;
 }
 
 .btn-delete {
@@ -170,7 +169,6 @@ button {
 .btn-add {
   font-size: 1.7rem;
   margin-bottom: 1rem;
-  padding-bottom: 0.5rem;
 }
 
 .amount-field {
