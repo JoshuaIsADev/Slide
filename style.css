@@ -174,7 +174,7 @@ button {
 }
 
 .category-container {
-  margin-bottom: 4rem;
+  margin-top: 1rem;
 }
 
 .name-container,
@@ -208,6 +208,7 @@ button {
   border-color: rgba(0, 0, 0, 0.15);
   padding: 0.6rem 1.5rem 0.4rem;
   margin-top: 0.5rem;
+  margin-bottom: 1rem;
   width: 100%;
 }
 

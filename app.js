@@ -145,7 +145,10 @@ function displayCategories(category, i) {
       <div class="slider-border">
         <input type="range" id="slider${i}" class="slider" min="0" max="100" value="${category.value}"/>
       </div>
-    </div>
+      </div>
+      <hr>
+    
+  
 
     
   `;
