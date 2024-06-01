@@ -18,7 +18,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Overpass+Mono:wght@300..700&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" type="text/css" href="./style.css" />
@@ -32,40 +32,45 @@
   <body>
     <header>
       <div class="container">
-        <h1 class="header-title">Slide_</h1>
-        <p class="header-info">
-          Is an app that will help calculate your budget. Enter an amount below
-          and Slide_ the sliders to your liking. Add some categories of your own
-          at the bottom too if you like.
-        </p>
-        <div id="amount-form-container">
-          <h2>Enter an amount</h2>
+        <h1 class="header-title">Slide</h1>
+        <hr class="hr-header" />
+      </div>
+    </header>
+
+    <main>
+      <div class="container">
+        <section id="amount-form-container">
+          <div class="heading-container">
+            <h2>Enter your take home pay</h2>
+          </div>
+          <p class="small">Weekly, monthly, or yearly. Entirely up to you</p>
           <div class="amount-field">
             <p class="amount-form">$</p>
             <input
-              type="text"
+              type="number"
+              min="0"
               id="amount-form"
               class="amount-form-field"
               placeholder="0"
+              type="number"
             />
           </div>
-          <hr class="hr-header" />
-        </div>
-      </div>
-    </header>
-    <main>
-      <div class="container">
+        </section>
         <section id="categories">
+          <div class="heading-container">
+            <h2>Use the slider to adjust your budget</h2>
+          </div>
           <ul id="list-container"></ul>
         </section>
         <form id="category-form-container">
-          <h2>Add a category</h2>
+          <div class="heading-container">
+            <h2>Add a category</h2>
+          </div>
           <div class="amount-field">
             <label class="btn-add-container" for="text"
               ><button class="btn-add">
                 <i
                   class="fa-solid fa-plus fa-l d-flex align-items-center"
-                  style="color: rgba(0, 0, 0, 0.15)"
                 ></i></button
             ></label>
             <input
@@ -75,7 +80,6 @@
               placeholder="Name"
             />
           </div>
-          <hr />
         </form>
       </div>
     </main>

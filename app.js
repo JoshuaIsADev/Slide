@@ -121,20 +121,33 @@ function displayCategories(category, i) {
   const item = document.createElement('li');
   item.classList.add('category-container');
   item.innerHTML = `
-    <div class="category-info">
-      <div class="percent-container">
-      <button class="btn-delete" onclick="removeCategory(${category.id})"><i class="fa-solid fa-x fa-l d-flex align-items-center" style="color: rgba(0, 0, 0, 0.15);"></i></button>
-        <p id="percent-value${i}" class="percentage">0</p>
-        <p class="percent-sign">%</p>
+    <div class="category-row">
+      <div class="category-column">
+        <button class="btn-delete" onclick="removeCategory(${category.id})">
+          <i class="fa-solid fa-x fa-xs d-flex align-items-center" ></i>
+        </button>
+        <div class="name-container">
+          <h3>${category.name}</h3>
+        </div>
       </div>
-      <div class="category-title">
-        <p class="name">${category.name}</p>
-        <p id="dollar-value${i}" class="dollar">${category.dollar}</p>
+      <div class="category-column">
+        <div class="percent-container">
+          <h3 id="percent-value${i}" class="percentage">0</h3>
+          <h3>%</h3>
+        </div>
+        <div class="dollar-container">
+          <h3 id="dollar-value${i}" class="dollar">${category.dollar}</h3>
+        </div>
       </div>
     </div>
-    <div class="slider-border">
-      <input type="range" id="slider${i}" class="slider" min="0" max="100" value="${category.value}"/>
+    
+    <div class="category-row">
+      <div class="slider-border">
+        <input type="range" id="slider${i}" class="slider" min="0" max="100" value="${category.value}"/>
+      </div>
     </div>
+
+    
   `;
   listContainer.appendChild(item);
 }
@@ -174,7 +187,7 @@ function removeCategory(id) {
     categories.splice(indexToRemove, 1);
 
     const categoryElement = document.querySelector(`#slider${indexToRemove}`)
-      .parentNode.parentNode;
+      .parentNode.parentNode.parentNode;
     listContainer.removeChild(categoryElement);
 
     const sliders = document.querySelectorAll('.slider');
