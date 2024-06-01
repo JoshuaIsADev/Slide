@@ -123,7 +123,7 @@ function displayCategories(category, i) {
   item.innerHTML = `
     <div class="category-row">
       <div class="category-column">
-        <button class="btn-delete" onclick="removeCategory(${category.id})">
+        <button onclick="removeCategory(${category.id})">
           <i class="fa-solid fa-x fa-xs d-flex align-items-center" ></i>
         </button>
         <div class="name-container">
