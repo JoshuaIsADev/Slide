@@ -83,9 +83,8 @@ const updateCategoryInfo = function (categories) {
       slider.addEventListener('input', () => {
         let currentValue = parseInt(slider.value);
         let totalValue = 0;
-
         categories.forEach(function (cat, index) {
-          if (slider && i !== index) {
+          if (slider && parseInt(slider.id.slice(6)) !== index) {
             totalValue += parseInt(
               document.getElementById(`slider${index}`).value
             );
@@ -136,7 +135,7 @@ function displayCategories(category, i) {
           <p>%</p>
         </div>
         <div class="dollar-container">
-          <p id="dollar-value${i}" class="font-bold">${category.dollar}</p>
+          <p id="dollar-value${i}" class="dollar font-bold">${category.dollar}</p>
         </div>
       </div>
     </div>
@@ -182,7 +181,7 @@ function addCategory(e) {
 
 //////DELETE CATEGORY FUNCTION//////
 function removeCategory(id) {
-  console.log(`removed: ${id}`);
+  // console.log(`removed: ${id}`);
 
   const indexToRemove = categories.findIndex((category) => category.id === id);
 
