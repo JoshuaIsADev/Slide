@@ -2,23 +2,23 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 body {
-  font-family: 'Urbanist', sans-serif;
+  font-family: 'Overpass Mono', monospace;
   font-optical-sizing: auto;
   font-style: normal;
-  background-color: #ffb198;
+  font-optical-sizing: auto;
+  font-style: normal;
+  text-transform: uppercase;
+  background-color: #ff9356;
   scroll-behavior: smooth;
-  width: 100vw;
-  /* height: 100%; */
-  /* display: flex; */
   align-items: center;
   justify-content: center;
   overflow-x: hidden;
-  padding: 0;
-  margin: 0;
+  padding: 2rem 1rem 1rem;
+  margin: 0 auto;
 }
 
 html {
@@ -26,34 +26,18 @@ html {
 }
 
 header {
-  text-align: left;
-  margin: auto;
-  width: 100vw;
-  padding-top: 5rem;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 700px;
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.75);
 }
 
 .container {
-  max-width: 600px;
+  max-width: 700px;
   height: 100%;
-  margin: auto;
-  padding: 1rem;
-}
-
-h1 {
-  font-size: 5rem;
-  font-weight: 600;
-}
-
-h2 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  line-height: 2.5rem;
-}
-
-h3 {
-  font-size: 1rem;
-  font-weight: 700;
-  line-height: 1rem;
+  margin: 0 auto;
 }
 
 ul li {
@@ -61,59 +45,51 @@ ul li {
   padding: 0;
 }
 
-p.small {
-  font-size: 0.8rem;
+p {
+  font-weight: 500;
 }
 
-.header-info {
-  font-size: 1.2rem;
-  line-height: 2rem;
+.font-bold {
+  font-weight: 700;
+}
+
+.font-reg {
   font-weight: 400;
-  letter-spacing: 0.1rem;
-  text-transform: uppercase;
-  padding: 4rem 4rem 10rem 0;
 }
 
-.heading-container {
-  width: 17rem;
-}
-
-#amount-form-container,
 #category-form-container {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   text-align: left;
 }
 
-#category-form-container {
-  padding: 2rem 0;
-}
-
-.amount-form {
-  font-size: 2rem;
-  font-weight: 400;
-  color: rgba(0, 0, 0, 1);
-  text-align: right;
-  text-transform: uppercase;
-  border: none;
-  border-bottom: none;
+#amount-form-container,
+#categories {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.75);
 }
 
 .amount-form-field,
 .category-form-field {
-  box-sizing: border-box;
-  font-size: 2rem;
-  font-weight: 200;
-  letter-spacing: 0.15rem;
+  font-size: 1rem;
+  font-weight: 700;
   line-height: 0rem;
   width: 100%;
-  background: none;
   border-radius: 10rem;
   border: 1px solid rgba(0, 0, 0, 0.75);
-  background-color: #ff9d7e;
-  padding: 1rem 1.75rem;
+  background-color: #ff9356;
+  padding: 1rem 1.25rem;
+  margin-left: 0.3rem;
+}
+
+#list-container {
+  grid-column: 1 / span 2;
 }
 
 input[type='text']:focus {
@@ -121,14 +97,13 @@ input[type='text']:focus {
 }
 
 ::placeholder {
-  color: rgba(0, 0, 0, 0.15);
+  color: rgba(0, 0, 0, 0.5);
   opacity: 1;
 }
 
 hr {
-  border-top: 1px solid rgba(0, 0, 0, 0.4);
+  border-top: 1px solid rgba(0, 0, 0, 0.75);
   border-bottom: none;
-  position: relative;
   width: 100%;
 }
 
@@ -136,7 +111,7 @@ button {
   width: 2rem;
   height: 2rem;
   scale: 1;
-  border: solid 1px rgba(0, 0, 0, 0.75);
+  border: solid 1px rgba(0, 0, 0, 0.15);
   border-radius: 1.5rem;
   background: none;
   cursor: pointer;
@@ -145,9 +120,8 @@ button {
 .amount-field {
   display: flex;
   width: 100%;
-  justify-content: space-between;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.25rem;
 }
 
 .category-row {
@@ -162,23 +136,9 @@ button {
   align-items: center;
 }
 
-.category-title {
-  text-align: right;
-}
-
-.category-result {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-}
-
 .category-container {
-  margin-top: 0.75rem;
-  /* margin-bottom: 2rem; */
-  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
-  &:last-child {
-    border-bottom: none;
-  }
+  padding: 1.5rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.75);
 }
 
 .name-container,
@@ -186,18 +146,11 @@ button {
 .dollar-container {
   display: flex;
   align-items: center;
-  justify-content: center;
-  text-align: center;
-  border: solid 1px rgba(0, 0, 0, 0.75);
-  border-radius: 1.5rem;
-  padding: 0.5rem 1rem;
-  background-color: #ffc3b0;
+  border: none;
 }
 
 .percent-container {
-  height: 3.5rem;
-  width: 3.5rem;
-  border-radius: 4rem;
+  padding-right: 2rem;
 }
 
 .slider {
@@ -209,10 +162,9 @@ button {
   border-style: solid;
   border-width: thin;
   border-radius: 4rem;
-  border-color: rgba(0, 0, 0, 1);
+  border-color: rgba(0, 0, 0, 0.75);
   padding: 0.6rem 1.5rem 0.4rem;
   margin-top: 0.5rem;
-  margin-bottom: 1rem;
   width: 100%;
 }
 

@@ -11,16 +11,14 @@
       content="budget app, financial, budget calculator, salary"
     />
     <meta name="author" content="Joshua Llaneza" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Overpass+Mono:wght@300..700&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Overpass+Mono:wght@300..700&display=swap"
       rel="stylesheet"
     />
+
     <link rel="stylesheet" type="text/css" href="./style.css" />
 
     <script
@@ -31,57 +29,56 @@
   </head>
   <body>
     <header>
-      <div class="container">
-        <h1 class="header-title">Slide</h1>
-        <hr class="hr-header" />
-      </div>
+      <h1 class="font-bold">Slide</h1>
     </header>
 
-    <main>
-      <div class="container">
-        <section id="amount-form-container">
-          <div class="heading-container">
-            <h2>Enter your take home pay</h2>
-          </div>
-          <p class="small">Weekly, monthly, or yearly. Entirely up to you</p>
-          <div class="amount-field">
-            <p class="amount-form">$</p>
-            <input
-              type="number"
-              min="0"
-              id="amount-form"
-              class="amount-form-field"
-              placeholder="0"
-              type="number"
-            />
-          </div>
-        </section>
-        <section id="categories">
-          <div class="heading-container">
-            <h2>Use the slider to adjust your budget</h2>
-          </div>
-          <ul id="list-container"></ul>
-        </section>
-        <form id="category-form-container">
-          <div class="heading-container">
-            <h2>Add a category</h2>
-          </div>
-          <div class="amount-field">
-            <label for="text"
-              ><button class="btn-add">
-                <i
-                  class="fa-solid fa-plus fa-l d-flex align-items-center"
-                ></i></button
-            ></label>
-            <input
-              type="text"
-              id="category-form"
-              class="category-form-field"
-              placeholder="Name"
-            />
-          </div>
-        </form>
-      </div>
+    <main class="container">
+      <section id="amount-form-container">
+        <h2 class="font-bold">
+          Enter your take home pay.
+          <span class="font-reg">Weekly, monthly, or yearly. Up to you.</span>
+        </h2>
+
+        <div class="amount-field">
+          <p>$</p>
+          <input
+            type="number"
+            min="0"
+            id="amount-form"
+            class="amount-form-field"
+            placeholder="0"
+            type="number"
+          />
+        </div>
+      </section>
+
+      <section id="categories">
+        <h2 class="font-bold">
+          Use the sliders to adjust your budget.
+          <span class="font-reg">Add a category below as well.</span>
+        </h2>
+
+        <ul id="list-container"></ul>
+      </section>
+      <form id="category-form-container">
+        <div class="heading-container">
+          <h2>Add a category</h2>
+        </div>
+        <div class="amount-field">
+          <label for="text"
+            ><button class="btn-add">
+              <i
+                class="fa-solid fa-plus fa-l d-flex align-items-center"
+              ></i></button
+          ></label>
+          <input
+            type="text"
+            id="category-form"
+            class="category-form-field"
+            placeholder="Name"
+          />
+        </div>
+      </form>
     </main>
     <script src="./app.js"></script>
   </body>

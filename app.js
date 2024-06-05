@@ -132,11 +132,11 @@ function displayCategories(category, i) {
       </div>
       <div class="category-column">
         <div class="percent-container">
-          <h3 id="percent-value${i}" class="percentage">0</h3>
-          <h3>%</h3>
+          <p id="percent-value${i}" class="percentage">0</p>
+          <p>%</p>
         </div>
         <div class="dollar-container">
-          <h3 id="dollar-value${i}" class="dollar">${category.dollar}</h3>
+          <p id="dollar-value${i}" class="font-bold">${category.dollar}</p>
         </div>
       </div>
     </div>
